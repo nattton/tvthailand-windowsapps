@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-  <Identity Name="e426a61c-c7f4-454b-95cb-b9ebc5ee9a8f" Version="1.0.0.8" Publisher="CN=v-pasrit" />
+  <Identity Name="61328NattapongTonprasert.TVThailand" Version="1.1.0.1" Publisher="CN=EAEDE105-1F2F-4706-9315-E6031FB780FB" />
   <Properties>
-    <DisplayName>TV_Thailand.Windows</DisplayName>
-    <PublisherDisplayName>v-pasrit</PublisherDisplayName>
+    <DisplayName>TV Thailand</DisplayName>
+    <PublisherDisplayName>Nattapong Tonprasert</PublisherDisplayName>
     <Logo>images\tiles\StoreLogo.png</Logo>
   </Properties>
   <Prerequisites>
@@ -16,7 +16,7 @@
   <Applications>
     <Application Id="App" StartPage="default.html">
       <m2:VisualElements DisplayName="TV Thailand" Description="TV Thailand" ForegroundText="dark" BackgroundColor="#ffffff" Square150x150Logo="images\tiles\Square150x150Logo.png" Square30x30Logo="images\tiles\Square30x30Logo.png">
-        <m2:DefaultTile>
+        <m2:DefaultTile ShortName="TV Thailand">
           <m2:ShowNameOnTiles>
             <m2:ShowOn Tile="square150x150Logo" />
           </m2:ShowNameOnTiles>
