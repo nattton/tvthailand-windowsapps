@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>homePage</title>
+
+    <script src="//Microsoft.WinJS.2.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.2.0/js/ui.js"></script>
+
+    <link href="/css/default.min.css" rel="stylesheet" />
+    <link href="/pages/home/home.min.css" rel="stylesheet" />
+
+    <script src="/class/Menu.js"></script>
+
+    <script src="/js/error.js"></script>
+    <script src="/js/config.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/converters.js"></script>
+    <script src="/js/menu.js"></script>
+    <script src="search.js"></script>
+    <script src="/js/data.js"></script>
+    <script src="/js/favorite.js"></script>
+    <script src="/pages/home/home.js"></script>
+</head>
+<body>
+    <div class="fragment homepage">
+        <div class="list-section">
+            <div id="appLogo">TV Thailand</div>
+            <div id="searchBox" data-win-control="WinJS.UI.SearchBox" data-win-options="{
+                placeholderText: 'Search',
+                focusOnKeyboardInput: true,
+                searchHistoryDisabled: true,
+                onsuggestionsrequested: API.Search.suggestionsRequestedHandler,
+                onquerysubmitted : API.Search.querySubmitted
+            }"></div>
+            <div id="list">
+                <div id="menuTemplate" data-win-control="WinJS.Binding.Template">
+                    <div class="menu-item">
+                        <div class="thumbnail" data-win-bind="style.backgroundImage: thumbnail Converters.cssBackgroundUrl"></div>
+                        <div class="title" data-win-bind="textContent: title"></div>
+                    </div>
+                </div>
+                <div id="menuList" class="home-list win-selectionstylefilled" data-win-control="WinJS.UI.ListView" data-win-options="{
+                    layout: {type: WinJS.UI.ListLayout},
+                    selectionMode: 'single',
+                    swipeBehavior: 'none',
+                    tapBehavior: 'directSelect',
+                    itemDataSource: API.Menu.dataSource,
+                    itemTemplate: select('#menuTemplate'),
+                    onselectionchanging: select('.pagecontrol').winControl.listSelectionChanging,
+                    onselectionchanged: select('.pagecontrol').winControl.listSelectionChanged
+                }">
+                </div>
+                <div id="categoryList" class="home-list win-selectionstylefilled" data-win-control="WinJS.UI.ListView" data-win-options="{
+                    layout: {type: WinJS.UI.ListLayout},
+                    selectionMode: 'single',
+                    swipeBehavior: 'none',
+                    tapBehavior: 'directSelect',
+                    itemDataSource: API.List.Category.dataSource,
+                    itemTemplate: select('#menuTemplate'),
+                    onselectionchanged: select('.pagecontrol').winControl.listSelectionChanged
+                }">
+                </div>
+            </div>
+        </div>
+        <div class="content-section">
+            <header id="contentHeader">
+                <button id="menuButton">&#xE179;</button>
+                <div id="headerTitle"></div>
+            </header>
+            <section id="contentBody">
+                <progress class="page-progress win-large hidden"></progress>
+                <div id="programSquareTemplate" data-win-control="WinJS.Binding.Template">
+                    <div class="program-square-item">
+                        <div class="thumbnail" data-win-bind="style.backgroundImage: thumbnail Converters.cssBackgroundUrl"></div>
+                        <div class="title" data-win-bind="textContent: title"></div>
+                        <div class="live" data-win-bind="className: this Converters.toggleLive">LIVE</div>
+                        <div class="hover-border"></div>
+                    </div>
+                </div>
+                <div id="programItemTemplate" data-win-control="WinJS.Binding.Template">
+                    <div class="program-item">
+                        <div class="thumbnail" data-win-bind="style.backgroundImage: thumbnail Converters.cssBackgroundUrl"></div>
+                        <div class="title" data-win-bind="textContent: title"></div>
+                        <div class="description" data-win-bind="textContent: description"></div>
+                    </div>
+                </div>
+                <div id="programItemList" data-win-control="WinJS.UI.ListView" data-win-options="{
+                    layout: {
+                        type: WinJS.UI.ListLayout,
+                        orientation: WinJS.UI.Orientation.vertical
+                    },
+                    selectionMode: 'none',
+                    swipeBehavior: 'none'
+                }"></div>
+            </section>
+        </div>
+    </div>
+
+    <div id="channelFlyout" data-win-control="WinJS.UI.Menu">
+        <button data-win-control="WinJS.UI.MenuCommand" data-win-options="{id:'channelRerun', label:'ย้อนหลัง'}"></button>
+        <button data-win-control="WinJS.UI.MenuCommand" data-win-options="{id:'channelLive', label:'รายการสด'}"></button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+﻿@import "../../css/var";
+.channelProgram {
+    .msGrid(@headerHeight 1fr);
+
+    section[role=main] {
+        .msGrid();
+
+        #programList {
+            height: 100%;
+
+            .win-surface {
+                margin: 0 50px 50px 120px;
+
+                @media screen and (max-width: 850px) {
+                    margin-left: 50px;
+                }
+
+                @media screen and (max-width: 700px) {
+                    margin-left: 30px;
+                    margin-right: 30px;
+                }
+
+                @media screen and (max-width: 400px) {
+                    margin-left: 50px;
+                    margin-right: 50px;
+                }
+            }
+
+            .win-groupheadercontainer {
+                margin-top: 10px;
+                border-bottom: 2px solid @colorPink;
+            }
+
+            .win-container {
+                margin: 0;
+
+                &:hover {
+                    outline: none;
+                }
+            }
+
+            .win-itembox {
+                background-color: transparent;
+            }
+        }
+    }
+}
+
+.program-item {
+    .msGrid(auto 1fr, 250px 10px 1fr);
+    background-color: white;
+    width: 450px;
+    height: 140px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 1px 2px rgba(100,100,100,0.6);
+
+    &:hover {
+        background-color: fade(@colorPink, 30%);
+    }
+
+    .thumbnail {
+        -ms-grid-row-span: 2;
+        height: 100%;
+        background-image: url('http://placehold.it/250x140');
+        background-size: cover;
+    }
+
+    .title {
+        -ms-grid-column: 3;
+    }
+
+    .description {
+        -ms-grid-column: 3;
+        -ms-grid-row: 2;
+        color: darkgray;
+    }
+}

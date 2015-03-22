@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>channelProgram</title>
+
+    <link href="channelProgram.min.css" rel="stylesheet" />
+
+    <script src="/js/util.js"></script>
+    <script src="/js/config.js"></script>
+    <script src="/js/data.js"></script>
+
+    <script src="channelProgram.js"></script>
+</head>
+<body>
+    <div class="channelProgram fragment">
+        <header class="page-header" aria-label="Header content" role="banner">
+            <button class="back-button" data-win-control="WinJS.UI.BackButton"></button>
+            <h1 class="titlearea win-type-ellipsis">
+                <span class="pagetitle">Channel Program</span>
+            </h1>
+        </header>
+        <section class="page-section" aria-label="Main content" role="main">
+            <progress class="page-progress win-large hidden"></progress>
+            <div id="programItemTemplate" data-win-control="WinJS.Binding.Template">
+                <div class="program-item">
+                    <div class="thumbnail" data-win-bind="style.backgroundImage: thumbnail Converters.cssBackgroundUrl"></div>
+                    <div class="title" data-win-bind="textContent: title"></div>
+                    <div class="description" data-win-bind="textContent: description"></div>
+                </div>
+            </div>
+            <div id="programList" data-win-control="WinJS.UI.ListView" data-win-options="{
+                    selectionMode: 'none',
+                    swipeBehavior: 'none',
+                    itemTemplate: select('#programItemTemplate'),
+                    oniteminvoked: select('.pagecontrol').winControl.programInvoked
+                }"></div>
+        </section>
+    </div>
+</body>
+</html>

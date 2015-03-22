@@ -1,0 +1,101 @@
+﻿@import "../../css/var";
+
+.video {
+    section[role=main] {
+        .grid(@margin: 120px) {
+            .msGrid(1fr 250px, @margin 1fr @margin);
+        }
+
+        .grid();
+
+        @media screen and (max-width: 850px) {
+            .grid(20px);
+        }
+
+        &.live {
+            .grid(@margin: 120px) {
+                .msGrid(1fr @margin, @margin 1fr @margin);
+            }
+
+            .grid();
+
+            @media screen and (max-width: 850px) {
+                .grid(20px);
+            }
+        }
+
+        .video-player {
+            width: 100%;
+            height: 100%;
+            -ms-grid-column: 2;
+            .pf-buffering-control {
+                color: @colorPink;
+            }
+
+            input[type=range]::-ms-fill-lower {
+                background-color: @colorPink;
+            }
+        }
+
+        #videoListSession {
+            -ms-grid-row: 2;
+            -ms-grid-column-span: 3;
+            .msGrid();
+
+            #videoList {
+                width: 100%;
+                height: 100%;
+
+                .win-selectionbackground {
+                    background-color: @colorPink;
+                }
+
+                .win-selectioncheckmark {
+                    display: none;
+                }
+
+                .win-itembox {
+                    background-color: transparent;
+                }
+
+                .win-container {
+                    margin: 0;
+
+                    &:hover {
+                        outline: none;
+                    }
+                }
+
+                .win-surface {
+                    margin: 10px 50px 0 120px;
+
+                    @media screen and (max-width: 850px) {
+                        margin-left: 20px;
+                        margin-right: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.video-item {
+    .msGrid(140px 1fr auto);
+    width: 250px;
+    height: 200px;
+    padding: 10px;
+
+    &:hover {
+        background-color: fade(@colorPink, 30%);
+    }
+
+    .thumbnail {
+        height: 100%;
+        background-image: url('http://placehold.it/250x140');
+    }
+
+    .title {
+        -ms-grid-row: 2;
+        margin-top: 5px;
+    }
+}

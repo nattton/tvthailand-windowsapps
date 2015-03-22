@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>video</title>
+
+    <link href="video.min.css" rel="stylesheet" />
+
+    <!-- PlayerFramework references -->
+    <link href="/Microsoft.PlayerFramework.Js/css/PlayerFramework-dark.css" rel="stylesheet">
+    <script src="/Microsoft.PlayerFramework.Js/js/PlayerFramework.js"></script>
+    <script src="/Microsoft.PlayerFramework.Js.Adaptive/js/PlayerFramework.Adaptive.js"></script>
+
+    <!-- HLS Plugin References -->
+    <script src="/Microsoft.PlayerFramework.Js.HLS/js/HLSPlugin.js"></script> 
+
+    <script src="/js/converters.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/data.js"></script>
+    <script src="video.js"></script>
+</head>
+<body>
+    <div class="video fragment">
+        <header class="page-header" aria-label="Header content" role="banner">
+            <button class="back-button" data-win-control="WinJS.UI.BackButton"></button>
+            <h1 class="titlearea win-type-ellipsis">
+                <span class="pagetitle">Video</span>
+            </h1>
+        </header>
+        <section class="page-section" aria-label="Main content" role="main">
+            <iframe id="videoPlayer" class="video-player" allowfullscreen></iframe>
+            <div id="playerFramework" class="video-player" data-win-control="PlayerFramework.MediaPlayer" data-win-options="{
+                autoplay: true,
+                isFullScreenAllowed: true,
+                isFullScreenEnabled: true,
+                isFullScreenVisible: true
+            }"></div>
+            <div id="videoListSession">
+                <div id="videoListTemplate" data-win-control="WinJS.Binding.Template">
+                    <div class="video-item">
+                        <div class="thumbnail" data-win-bind="style.backgroundImage: thumbnail Converters.cssBackgroundUrl"></div>
+                        <div class="title" data-win-bind="textContent: this Converters.concatTitle"></div>
+                    </div>
+                </div>
+                <div id="videoList" class="win-selectionstylefilled" data-win-control="WinJS.UI.ListView" data-win-options="{
+                    selectionMode: 'single',
+                    swipeBehavior: 'none',
+                    tapBehavior: 'directSelect',
+                    itemTemplate: select('#videoListTemplate'),
+                    onselectionchanged: select('.pagecontrol').winControl.listSelectionChanged
+                }"></div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

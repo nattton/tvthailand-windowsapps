@@ -1,0 +1,39 @@
+﻿@import "var";
+
+.SettingsPane {
+    height: 100%;
+    color: #333;
+    display: -ms-grid;
+    -ms-grid-columns: 1fr;
+    -ms-grid-rows: 80px 1fr;
+}
+
+    .SettingsPane .win-backbutton {
+        color: white;
+        border-color: white;
+    }
+        .SettingsPane .win-backbutton:active {
+            color: @colorPink;
+            border-color: white;
+            background-color: white;
+        }
+
+.SettingsTitlePane {
+    -ms-grid-row: 1;
+    padding-top: 30px;
+    padding-left: 36px;
+    background-color: @colorPink;
+    color: white;
+}
+
+    .SettingsTitlePane .SettingsTitle {
+        padding-left: 36px;
+    }
+
+.SettingsContent {
+    -ms-grid-row: 2;
+    padding-top: 20px;
+    padding-left: 36px;
+    padding-right: 25px;
+    overflow-y: auto;
+}

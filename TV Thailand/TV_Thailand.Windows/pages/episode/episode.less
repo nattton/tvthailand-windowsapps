@@ -1,0 +1,172 @@
+﻿@import "../../css/var";
+
+.episode {
+    .msGrid(@headerHeight 1fr);
+
+    section[role=main] {
+        .msGrid();
+
+        #episodeList {
+            height: 100%;
+
+            .win-surface {
+                margin: 0 50px 50px 120px;
+
+                @media screen and (max-width: 850px) {
+                    margin-left: 50px;
+                }
+
+                @media screen and (max-width: 700px) {
+                    margin-left: 30px;
+                    margin-right: 30px;
+                }
+
+                @media screen and (max-width: 400px) {
+                    margin-left: 50px;
+                    margin-right: 50px;
+                }
+            }
+
+            .win-groupheadercontainer {
+                margin-top: 10px;
+                /*width: ~"calc(100% - 120px)";*/
+                border-bottom: 2px solid @colorPink;
+            }
+
+            .win-container {
+                margin: 0;
+
+                &:hover {
+                    outline: none;
+                }
+            }
+
+            .win-itembox {
+                background-color: transparent;
+            }
+        }
+    }
+
+    #appbarPeek {
+        -ms-grid-row: 3;
+    }
+
+    .video-info {
+        position: relative;
+        z-index: 2;
+        -ms-grid-row-span: 3;
+        width: 100%;
+        height: 100%;
+        background-color: fade(black, 50%);
+        transition: all 0.5s;
+
+        &.hide {
+            visibility: collapse;
+            opacity: 0;
+        }
+
+        #videoInfoSection {
+            position: relative;
+            z-index: 3;
+            width: ~"calc(100% - 100px)";
+            height: ~"calc(100% - 100px)";
+            margin: 50px;
+            padding: 20px 0;
+            background-color: white;
+            border: 1px solid @colorPink;
+            box-sizing: border-box;
+            .msGrid(auto auto 1fr);
+
+            > * {
+                padding: 0 50px;
+            }
+
+            .header {
+                .msGrid(1fr, 1fr 45px);
+                padding-right: 20px;
+
+                .title {
+                    color: @colorPink;
+                    font-size: x-large;
+                    -ms-grid-row-align: center;
+                }
+
+                .close-button {
+                    -ms-grid-column: 2;
+                    width: 45px;
+                    height: 45px;
+                    min-width: 0;
+                    min-height: 0;
+                    font-size: 14pt;
+                    background-color: transparent;
+                    border-radius: 50%;
+                    border: 2px solid black;
+
+                    &:hover {
+                        background-color: fade(black, 10%);
+                    }
+
+                    &:active {
+                        background-color: black;
+                        color: white;
+                    }
+                }
+            }
+
+            .thumbnail {
+                -ms-grid-row: 2;
+                -ms-grid-column-align: center;
+                -ms-grid-row-align: center;
+                max-height: 40vh;
+                min-height: 120px;
+                margin: 10px auto;
+            }
+
+            .info {
+                -ms-grid-row: 3;
+                overflow-y: auto;
+            }
+        }
+    }
+}
+
+.episode-item {
+    .msGrid(140px 1fr auto);
+    background-color: white;
+    width: 250px;
+    height: 210px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 1px 2px rgba(100,100,100,0.6);
+
+    &:hover {
+        background-color: fade(@colorPink, 30%);
+    }
+
+    .thumbnail {
+        height: 100%;
+        background-image: url('http://placehold.it/250x140');
+    }
+
+    .title {
+        -ms-grid-row: 2;
+        margin-top: 10px;
+    }
+
+    .type {
+        -ms-grid-row: 3;
+    }
+}
+
+.episode-group {
+    width: 100% !important;
+    height: 32px !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+}
+
+.episode-date {
+    font-size: large;
+    color: gray;
+}

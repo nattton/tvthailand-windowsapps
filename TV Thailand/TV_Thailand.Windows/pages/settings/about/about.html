@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>about</title>
+
+    <link href="/css/settings.min.css" rel="stylesheet" />
+    <link href="about.css" rel="stylesheet" />
+    <script src="about.js"></script>
+</head>
+<body>
+    <div id="about" data-win-control="WinJS.UI.SettingsFlyout" data-win-options="{width: 'narrow'}">
+        <div class="SettingsPane">
+            <div class="win-label SettingsTitlePane">
+                <button onclick="WinJS.UI.SettingsFlyout.show()" class="win-backbutton"></button>
+                <span class="SettingsTitle">About</span>
+            </div>
+            <div class="SettingsContent">
+                <h2>TV Thailand</h2><br />
+                <p id="version"></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

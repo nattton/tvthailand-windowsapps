@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>episode</title>
+
+    <link href="episode.min.css" rel="stylesheet" />
+    <link href="/css/appbar.min.css" rel="stylesheet" />
+
+    <script src="/js/util.js"></script>
+    <script src="/js/config.js"></script>
+    <script src="/js/favorite.js"></script>
+    <script src="/js/data.js"></script>
+    <script src="/js/appbar.js"></script>
+    <script src="episode.js"></script>
+</head>
+<body>
+    <div class="episode fragment">
+        <header class="page-header" aria-label="Header content" role="banner">
+            <button class="back-button" data-win-control="WinJS.UI.BackButton"></button>
+            <h1 class="titlearea win-type-ellipsis">
+                <span class="pagetitle">Episode</span>
+            </h1>
+        </header>
+        <section class="page-section" aria-label="Main content" role="main">
+            <progress class="page-progress win-large hidden"></progress>
+            <div id="episodeGroupTemplate" data-win-control="WinJS.Binding.Template">
+                <div class="episode-group" data-win-bind="textContent: title"></div>
+                <div class="episode-date" data-win-bind="textContent: date"></div>
+            </div>
+            <div id="episodeItemTemplate" data-win-control="WinJS.Binding.Template">
+                <div class="episode-item">
+                    <div class="thumbnail" data-win-bind="style.backgroundImage: thumbnail Converters.cssBackgroundUrl"></div>
+                    <div class="title" data-win-bind="textContent: title"></div>
+                </div>
+            </div>
+
+            <div id="episodeList" data-win-control="WinJS.UI.ListView" data-win-options="{
+                    selectionMode: 'none',
+                    swipeBehavior: 'none',
+                    itemTemplate: select('#episodeItemTemplate'),
+                    groupHeaderTemplate: select('#episodeGroupTemplate'),
+                    oniteminvoked: select('.pagecontrol').winControl.episodeInvoked
+                }"></div>
+        </section>
+
+        <section class="video-info hide">
+            <div id="videoInfoSection">
+                <div class="header">
+                    <div class="title" data-win-bind="innerText: title"></div>
+                    <button class="close-button">&#xE10A;</button>
+                </div>
+                <img class="thumbnail" data-win-bind="src: thumbnail" />
+                <div class="info">
+                    <div class="detail" data-win-bind="innerText: detail"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
